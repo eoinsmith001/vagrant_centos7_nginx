@@ -10,15 +10,15 @@ vagrant up
 
 ## Then do
 
-- Have a service you know running somewhere at http://<ip>:<port>/<endpoint>
+- Have a service you know running somewhere at http://ip:port/endpoint
 - Modify the `express.conf` file to refer to the ip/port of your service
 - Copy `express.conf` to the Vagrant box at `/etc/nginx/conf.d/express.conf`
 - Remove the `server` block from `/etc/nginx/nginx.conf`
 
 ## Observe
 
-If everything is tied together correctly, this should work
+If everything is tied together correctly, this (for example, a GET) should work
 
-- `curl -X GET http:<vagrantboxip>/api`
+- `curl -X GET http:<vagrantboxip>/endpoint`
 
 as nginx should forward that request on according to the  `location#proxy_pass` rule in `express.conf`
